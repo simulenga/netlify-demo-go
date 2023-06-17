@@ -1,5 +1,5 @@
 # netlify-demo-go
-This repositories created to test and deploy simple netlify function in go language
+This repository created to test and deploy simple netlify function in go language
 
 # references
 https://gophercoding.com/example-netlify-function-in-go/
