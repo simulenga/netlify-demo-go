@@ -1,24 +1,21 @@
 package main
 
 import (
-	"context"
-	"fmt"
+  "log"
+  "time"
 
-	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
+  "github.com/aws/aws-lambda-go/events"
+  "github.com/aws/aws-lambda-go/lambda"
 )
 
-func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	fmt.Println("This message will show up in the CLI console.")
-
-	return &events.APIGatewayProxyResponse{
-		StatusCode:      200,
-		Headers:         map[string]string{"Content-Type": "text/plain"},
-		Body:            "Hello, World!",
-		IsBase64Encoded: false,
-	}, nil
+func handler(request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+  for i := 0; i < 60; i++ {
+    log.Println(i)
+    time.Sleep(1 * time.Second)
+  }
+  return nil, nil
 }
 
 func main() {
-	lambda.Start(handler)
+  lambda.Start(handler)
 }
