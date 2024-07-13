@@ -4,7 +4,6 @@ import (
     "encoding/base64"
     "io/ioutil"
     "log"
-    "os"
     "os/exec"
     "time"
 
